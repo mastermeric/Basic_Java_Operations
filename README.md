@@ -1,17 +1,18 @@
-## Getting Started
+## Basic Java Operations
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project is dedicated to new Java learner to demonstrate basic & useful Java operations such as;
+- Read data from a file.
+- Write data to a file.
+- Basic Multi-Thread oeprations.
+- LINQ like operations in Java
+- Stack opearions
 
 ## Folder Structure
 
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
 ## Dependency Management
 
