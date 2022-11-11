@@ -140,82 +140,50 @@ public class App {
         return true;
     }
 
-    public int stackOperations(String S) {
+    //Send Stack operations as string list to do operations on an Integer Stack. 
+    //Ex: "PUSH , PUSH, POP"
+    public Stack<Integer> stackOperations(String CommandList) {
 
-        if(S == null)
-        return -1;
+        if(CommandList == null)
+        return null;
 
         Stack<Integer> tempStack = new Stack<Integer>();
         
         try {
+            // Get Commands as list
+            String[] commandList =  CommandList.split(" ");
 
-            boolean lastCommandIsInteger = false;
-
-            // Case 1
-            String[] commandList =  S.split(" ");
-
-            //Error case 2
-            if(commandList.length == 0 || commandList.length>2000) {
-                return -1;
+            //Check Commands are ok.
+            if(commandList.length == 0 || commandList.length>1000) {
+                return null;
             }
 
             for (int i = 0; i < commandList.length; i++) {
                 String command = commandList[i];
-                if(isNumeric(command) == true) {
-                    int tempNumber = Integer.parseInt(command);                    
-                    tempStack.push(tempNumber);
-                    
-                    //check.
-                    lastCommandIsInteger = true;
-                } else {
 
-                    if(lastCommandIsInteger == false ) {
-                        return -1;
-                    }
-                    
                     //Command situations...
                     switch (command) {
-                        case "DUP":  
-                                int temp = tempStack.pop();
-                                tempStack.push(temp);
-                                tempStack.push(temp);
-                            break;
-                    
+
                             case "POP":                
                                 tempStack.pop();                                            
                             break;
 
-                            case "-":                
-                            int temp1 = tempStack.pop();            
-                            int temp2 = tempStack.pop();            
-
-                            //We dont want negative substraction result.
-                            int res = temp1-temp2;                            
-                            if(res<0) {
-                                return -1;
-                            }
-                            tempStack.push(res);
-                            break;
-
-                            case "+":        
-                            int tempSum1 = tempStack.pop();            
-                            int tempSum2 = tempStack.pop();            
-                            
-                            int tempSum = tempSum1 + tempSum2;
-                            tempStack.push(tempSum);
+                            case "PUSH":                
+                            int tempVal =  45 ; // temp value
+                            tempStack.push(tempVal);
                             break;
 
                         default:
                             System.out.println("Unsupported Command !");
-                            return -1;
+                            return null;
                     }
-                }
             }
         
-            return tempStack.pop();
+            return tempStack;
 
         } catch (Exception e) {
-            return -1;
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 
