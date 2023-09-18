@@ -99,7 +99,9 @@ public class App {
           }
         //------------------------------------------------
     }
-    void StringOperations() {
+    
+    
+    static void StringOperations() {
        // "_" notation is good for readability in numeric literals..
         int maxVal = 123_450_000;
 
@@ -189,6 +191,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        FileOperations();        
+        //FileOperations();        
+        StringOperations();
     }
 }
